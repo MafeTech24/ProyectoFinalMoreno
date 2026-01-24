@@ -18,7 +18,13 @@ function CheckoutForm() {
       nombre,
       email,
       telefono,
-      productos: cart,
+      productos: cart.map((p) => ({
+                  id: p.id,
+                  title: p.title,
+                  price: p.price,
+                  count: p.count,
+                  image: p.image, // <- CLAVE
+})),
       total: Number(cart.reduce((acc, i) => acc + i.price * i.count, 0).toFixed(2)),
       time: serverTimestamp(),
     };

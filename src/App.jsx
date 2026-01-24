@@ -1,15 +1,15 @@
-import './App.css'
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import CartContainer from './components/CartContainer';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import CartContainer from "./components/CartContainer";
 import CheckoutContainer from "./components/CheckoutContainer";
 import CheckoutSuccess from "./components/CheckoutSuccess";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
@@ -18,10 +18,9 @@ function App() {
         <Route path="/cart" element={<CartContainer />} />
         <Route path="/checkout" element={<CheckoutContainer />} />
         <Route path="/checkout/success/:orderId" element={<CheckoutSuccess />} />
-      </Routes>  
-    </ BrowserRouter>
+      </Routes>
+    </>
   );
 }
 
 export default App;
-

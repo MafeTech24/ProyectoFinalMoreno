@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/db";
@@ -64,13 +64,26 @@ function CheckoutSuccess() {
 
       <h4 className="mt-4">Resumen de productos:</h4>
       <ul className="list-group">
-        {pedido.productos.map((prod) => (
-          <li key={prod.id} className="list-group-item d-flex justify-content-between">
-            <span>{prod.title} x {prod.count}</span>
-            <span>${(prod.price * prod.count).toFixed(2)}</span>
-          </li>
-        ))}
-      </ul>
+  {pedido.productos.map((prod) => (
+    <li
+      key={prod.id}
+      className="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <div className="d-flex align-items-center gap-2">
+        <img
+          src={`${import.meta.env.BASE_URL}${prod.image}`}
+          alt={prod.title}
+          style={{ width: 48, height: 48, objectFit: "cover", borderRadius: 8 }}
+          onError={(e) => (e.currentTarget.src = `${import.meta.env.BASE_URL}products/no-image.png`)}
+        />
+        <span>{prod.title} x {prod.count}</span>
+      </div>
+
+      <span>${(prod.price * prod.count).toFixed(2)}</span>
+    </li>
+  ))}
+</ul>
+
 
       <h5 className="mt-3">
         Total: ${pedido.total || "No disponible"}
