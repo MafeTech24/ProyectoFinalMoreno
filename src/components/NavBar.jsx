@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router'; 
+import { NavLink } from 'react-router-dom'; 
 import logo from '../assets/logo.webp'; 
 
 function NavBar() {
@@ -21,10 +21,10 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Categorías" id="basic-nav-dropdown">              
-              <NavDropdown.Item to={`/category/electronics`} as={NavLink}>Electrónica</NavDropdown.Item> 
-              <NavDropdown.Item to={`/category/jewelery`} as={NavLink}>Joyería</NavDropdown.Item>  
-              <NavDropdown.Item to={`/category/mens-clothing`} as={NavLink}>Ropa de Hombre</NavDropdown.Item>
-              <NavDropdown.Item to={`/category/womens-clothing`} as={NavLink}>Ropa de Mujer</NavDropdown.Item>
+              <NavDropdown.Item to={`/category/Electrónica`} as={NavLink}>Electrónica</NavDropdown.Item> 
+              <NavDropdown.Item to={`/category/Joyería`} as={NavLink}>Joyería</NavDropdown.Item>  
+              <NavDropdown.Item to={`/category/Ropa de Hombre`} as={NavLink}>Ropa de Hombre</NavDropdown.Item>
+              <NavDropdown.Item to={`/category/Ropa de Mujer`} as={NavLink}>Ropa de Mujer</NavDropdown.Item>
             </NavDropdown>            
           </Nav>
         </Navbar.Collapse>
